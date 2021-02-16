@@ -44,13 +44,13 @@
             </div>
           </div>
 
-          <div class="card">
+          {{-- <div class="card">
               <a href="{{route('events.create')}}">
                   <button type="button" class="btn btn-info btn-block">
                       Add New Event
                   </button>
               </a>
-          </div>
+          </div> --}}
 
         </div>
       </div>

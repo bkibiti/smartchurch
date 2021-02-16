@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Person;
 use App\Service;
-use App\PersonPosition;
 use App\PersonRole;
 use App\PersonRelations;
 use App\PersonDependant;
@@ -29,14 +28,12 @@ class PersonController extends Controller
  
     public function create()
     {
-        $members = Person::select('id','name','position_id','gender')->get();
-        $service = Service::all();
+        $members = Person::select('id','name','gender')->get();
         $relations = PersonRelations::all();
-        $position = PersonPosition::all();
         $marriageStatus = MarriageStatus::all();
         $Community = Community::all();
 
-        return view('people.create',compact('position','members','service','relations','marriageStatus','Community'));
+        return view('people.create',compact('members','relations','marriageStatus','Community'));
     }
 
    
@@ -48,8 +45,7 @@ class PersonController extends Controller
         $person->date_baptism = toDbDateFormat($request->date_baptism);
         $person->date_confirmation = toDbDateFormat($request->date_confirmation);
         $person->date_marriage = toDbDateFormat($request->date_marriage);
-        $person->form_return_date = toDbDateFormat($request->form_return_date);
-        $person->services = array2String($request->services);
+        $person->date_communion = toDbDateFormat($request->date_communion);
         $person->status = 3;
         $person->created_by = Auth::user()->id;
         $person->updated_by = Auth::user()->id;
@@ -68,13 +64,12 @@ class PersonController extends Controller
    
     public function edit(Person $person)
     {
-        $position = PersonPosition::all();
-        $service = Service::all();
-        $members = Person::select('id','name','position_id','gender')->get();
+        
+        $members = Person::select('id','name','gender')->get();
         $marriageStatus = MarriageStatus::all();
         $Community = Community::all();
 
-        return view('people.edit',compact('position','service','person','members','marriageStatus','Community'));
+        return view('people.edit',compact('person','members','marriageStatus','Community'));
     }
 
  
@@ -85,8 +80,7 @@ class PersonController extends Controller
         $person->date_baptism = toDbDateFormat($request->date_baptism);
         $person->date_confirmation = toDbDateFormat($request->date_confirmation);
         $person->date_marriage = toDbDateFormat($request->date_marriage);
-        $person->form_return_date = toDbDateFormat($request->form_return_date);
-        $person->services = array2String($request->services);
+        $person->date_communion = toDbDateFormat($request->date_communion);
         $person->status = 3;
         $person->updated_by = Auth::user()->id;
         $person->save();
@@ -109,7 +103,7 @@ class PersonController extends Controller
 
     public function approve(Request $request)
     {
-        // dd($request->all());
+      
         if($request->selection == 0){
             $status = 2;
             $msg = 'Taarifa Imekataliwa!';

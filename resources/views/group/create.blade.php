@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark ">Kikundi/Huduma</h1>
+                <h1 class="m-0 text-dark ">Chama cha Kitume</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
 
@@ -24,7 +24,7 @@
             <div class="col-md-12">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title">Taarifa za Huduma</h3>
+                        <h3 class="card-title">Taarifa za Chama</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -34,7 +34,7 @@
 
                             <div class="form-group row">
 
-                                <label class="col-sm-3 col-form-label">Jina la Kikundi/Huduma<font color="red">*</font></label>
+                                <label class="col-sm-3 col-form-label">Jina la Chama cha Kitume<font color="red">*</font></label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
                                 </div>
@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Maelezo ya Kikundi<font color="red">*</font></label>
+                                <label class="col-sm-3 col-form-label">Maelezo ya Chama<font color="red">*</font></label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="description" id="description" required>
                                 </div>

@@ -27,7 +27,7 @@
                     <div class="inner">
                         <h3>{{ $personCount[0]->count + $personCount[1]->count }}</h3>
 
-                        <p>Washarika {{ '(Me ' . $personCount[1]->count . ', Ke ' . $personCount[0]->count . ')' }}</p>
+                        <p>Waumini {{ '(Me ' . $personCount[1]->count . ', Ke ' . $personCount[0]->count . ')' }}</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -96,25 +96,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div class="row">
-                            <label class="col-lg-5">Nafasi </label>
-                            <label class="col-lg-5">Asilimia (%) </label>
-                            <label class="col-lg-2">Idadi </label>
-                        </div>
-
-                        @foreach ($classification as $c)
-                            <div class="row">
-                                <div class="col-lg-5">{{ $c->name }} </div>
-                                <div class="col-lg-5">
-                                    <div class="progress mb-3">
-                                        <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                                            style="width: {{ ($c->total / ($personCount[0]->count + $personCount[1]->count)) * 100 }}%"> </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-2">{{ $c->total }} </div>
-                            </div>
-                        @endforeach
+            
 
                     </div>
                     <!-- /.card-body -->
@@ -144,24 +126,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-success">
-                    <div class="card-header">
-                        <h3 class="card-title"> <i class="fas fa-chart-bar"></i> {{ __('members.attendancedash') }}</h3>
-
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart">
-                            <canvas id="attendancetrend" style="min-height: 250px; height: 250px;   max-width: 100%;"></canvas>
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div>
+                
         </div>
 
 
@@ -236,73 +201,7 @@
         })
 
     </script>
-    <script>
-        var attendance = @json($attendance);
-     
-        datasets = [];
-        labels = [];
-
-        for (line = 1; line < 4; line++) {
-            pointset = {};
-            pointset.backgroundColor = 'transparent';
-            pointset.borderColor = getRandomColor();
-            pointset.pointBorderColor = getRandomColor();
-            pointset.pointBackgroundColor = getRandomColor();
-            pointset.fill = false;
-            data = [];
-
-            $.each(@json($attendance), function(key, value) {
-                if (line == value.id) {
-                    pointset.label = value.title;
-                    data.push(value.total);
-                    if ($.inArray(value.date, labels) < 0) {
-                        labels.push(value.date)
-                    }
-
-                }
-            });
-            if (data.length) {
-                pointset.data = data;
-                pointset.labels = labels;
-                datasets.push(pointset);
-            }
-
-            
-        }
-        var chartOptions = {
-            legend: {
-                display: true,
-                position: 'top',
-
-            }
-        };
-  
-
-        var $attendanceChart = $('#attendancetrend')
-
-        var attendanceChart = new Chart($attendanceChart, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: datasets
-            },
-            options: chartOptions
-        });
-
-    
-
-
-
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-    </script>
+ 
 
 
 @endpush

@@ -8,7 +8,7 @@
 <div class="container-fluid">
   <div class="row mb-2">
     <div class="col-sm-6">
-      <h1 class="m-0 text-dark ">Taarifa za Kikundi</h1>
+      <h1 class="m-0 text-dark ">Taarifa za Chama</h1>
     </div><!-- /.col -->
     <div class="col-sm-6">
    
@@ -26,8 +26,8 @@
    
         <!-- /.card-header -->
         <div class="card-body">
-            <label>Jina la Kikundi: </label> {{$service->name}} <br>
-            <label>Maelezo ya Kikundi: </label> {{$service->description}}
+            <label>Jina la Chama: </label> {{$service->name}} <br>
+            <label>Maelezo ya Chama: </label> {{$service->description}}
         </div>
         <!-- /.card-body -->
       </div>
@@ -57,7 +57,7 @@
                         <th>Jina</th>
                         <th>Jinsia</th>
                         <th>Simu</th>
-                        <th>Nafasi katika Kundi</th>
+                        <th>Cheo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,7 +79,7 @@
               <div class="alert alert-warning alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <i class="icon fas fa-info"></i>
-                  Kundi halina Wanachama
+                  Hakuna Wanachama
               </div>
           @endif
            </div>

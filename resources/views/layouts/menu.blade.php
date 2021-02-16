@@ -49,12 +49,12 @@
                 <p>{{ __('menu.dependants')}}</p>
               </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{route('people.pending')}}" class="nav-link">
                 <i class="fas fa-angle-double-right"></i>
                 <p>{{ __('menu.approve')}}</p>
               </a>
-          </li>
+          </li> --}}
        
      
         </ul>
@@ -83,7 +83,7 @@
         
         </ul>
       </li>
-      <li class="nav-item has-treeview">
+      {{-- <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-calendar-alt"></i>
           <p>
@@ -104,14 +104,9 @@
               <p>{{ __('menu.eventlist')}}</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{route('events-attendance.index')}}" class="nav-link">
-              <i class="fas fa-angle-double-right"></i>
-            <p>{{__('menu.attendance')}}</p>
-            </a>
-          </li>
+        
       </ul>
-      </li>
+      </li> --}}
       <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-university"></i>

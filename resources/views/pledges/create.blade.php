@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="form-group row" id="person">
-                                <label class="col-sm-2 col-form-label">Msharika<font color="red">*</font></label>
+                                <label class="col-sm-2 col-form-label">Muumini<font color="red">*</font></label>
                                 <div class="col-sm-10">
                                     <select class="form-control select2" id="person_id" name="person_id">
                                         <option value="">--Chagua--</option>

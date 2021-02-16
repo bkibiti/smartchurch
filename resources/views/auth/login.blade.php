@@ -25,7 +25,7 @@
   <div class="login-logo">
     <img src="{{ asset('dist/img/logo_trans.png') }}" width="50" height="50"> 
     <br>
-    <a href="{{ route('public-home') }}"><b>Smart</b>Church</a> 
+    <a href=""><b>Smart</b>Church</a> 
   </div>
   <!-- /.login-logo -->
   <div class="card">

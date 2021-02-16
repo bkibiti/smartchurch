@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'PublicController@index')->name('public-home');
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
+
+Route::get('/', function () {
+    return view('auth.login');
+});
 
 Auth::routes();
 
@@ -55,24 +55,20 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/dependant', 'DependantsController@store2')->name('dependants.store2');
         Route::post('admin/dependant/delete', 'DependantsController@delete')->name('dependants.delete');
 
-
-
-        
-        // Route::resource('admin/family', 'FamilyController');
-
+        //vyama vya kitume
         Route::resource('admin/services', 'ServiceController');
-        // Route::resource('service-types', 'GroupTypeController');
+  
 
 
         //envets
         Route::resource('admin/event-types', 'EventTypeController');
         Route::resource('admin/events', 'EventController');
-        Route::resource('admin/events-attendance', 'EventAttendanceController');
+ 
 
         Route::get('admin/events-calender', 'EventController@calender')->name('calender');
 
         //pledges
-        Route::resource('admin/admin/pledges', 'PledgeController');
+        Route::resource('admin/pledges', 'PledgeController');
 
         Route::resource('admin/fund-activities', 'FundActivityController')->only([
             'index', 'store','update','destroy'

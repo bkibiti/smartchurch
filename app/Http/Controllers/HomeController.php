@@ -28,10 +28,7 @@ class HomeController extends Controller
         $ongoing = Event::whereDate('start', '<', Carbon::now())->whereDate('end', '>', Carbon::now())->count();
         $event = $upcoming + $ongoing;
 
-        $classification = DB::select("SELECT cl.name,count(persons.id) total FROM persons 
-        JOIN person_position cl ON cl.id = position_id
-        GROUP BY position_id");
-
+       
         $dependants = DB::select("SELECT gender,count(gender) total FROM person_dependants
         GROUP BY gender ORDER BY gender");
 
@@ -48,10 +45,7 @@ class HomeController extends Controller
             SUM(IF(TIMESTAMPDIFF(YEAR, dob, CURDATE()) >=80, 1, 0)) as '80 - 99'
             FROM persons group by gender order by gender");
 
-        $attendance = DB::select("SELECT t.date,e.id, title, (t.male + t.female + t.children) total FROM events e
-        JOIN event_attendace_totals t ON e.id=t.event_id
-        ORDER BY date");
-
-        return view('dashboard',compact("personCount","groupCount","event","classification","ageCategory","dependants","attendance"));
+       
+        return view('dashboard',compact("personCount","groupCount","event","ageCategory","dependants"));
     }
 }

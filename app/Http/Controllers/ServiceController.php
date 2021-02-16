@@ -47,7 +47,7 @@ class ServiceController extends Controller
         }
 
         session()->flash("alert-success", "Record Saved Successfully!");
-        return redirect()->route('groups.index');
+        return redirect()->route('services.index');
     }
 
     public function show(Service $service)

@@ -38,7 +38,7 @@
           <table id="mydatatable" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Jina la Masharika</th>
+                    <th>Jina la Muumini</th>
                     <th>Aina ya Ahadi</th>
                     <th>Tarehe ya Ahadi</th>
                     <th>Kiasi Alichoahidi</th>

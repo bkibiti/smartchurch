@@ -9,19 +9,12 @@ class Person extends Model
 {
     Protected $table = 'persons';
 
-    protected $guarded = ["date_baptism","date_eucharist","date_confirmation","date_marriage","dob","form_return_date","created_by","services"];
+    protected $guarded = ["date_baptism","date_eucharist","date_confirmation","date_marriage","dob","date_communion","created_by","services"];
     
-
-    public function position()
-    {
-        return $this->belongsTo('App\PersonPosition', 'position_id','id');
-    }
-
 
     public function group()
     {
         return $this->belongsToMany('App\Group', 'group_members');
-
     }
 
     public function pledges()
@@ -39,11 +32,15 @@ class Person extends Model
         return $this->belongsTo('App\MarriageStatus', 'marriage_status_id','id');
     }
 
-    public function community() //nyumba kwa nyumba
+    public function community() //jumuiya
     {
         return $this->belongsTo('App\Community', 'community_id','id');
     }
 
+    public function kanda()
+    {
+        return $this->belongsTo('App\Kanda', 'kanda_id','id');
+    }
 
     public function age($date){
         return Carbon::createFromDate($date)->age;

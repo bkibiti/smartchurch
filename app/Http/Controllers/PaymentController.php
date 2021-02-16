@@ -36,7 +36,6 @@ class PaymentController extends Controller
  
     public function store(Request $request)
     {
-        // dd($request->all());
         $payment = new Payment;
 
         if ($request->pledged == "1") { // Payment for non pledge

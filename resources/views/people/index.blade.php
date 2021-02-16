@@ -47,22 +47,24 @@
                         <table id="mydatatable" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th> {{ __('members.name2')}}</th>
+                                    <th>Kanda/Kigango</th>
+                                    <th>Jumuiya</th>
+                                    <th>Jina</th>
                                     <th>{{ __('members.gender')}}</th>
-                                    <th>{{ __('members.address')}}</th>
                                     <th>{{ __('members.phone')}}</th>
-                                    <th>{{ __('members.arearesidential')}}</th>
+                                    <th>Namba ya Zaka</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($people as $p)
                                     <tr>
+                                        <td>{{ $p->kanda->name }}</td>
+                                        <td>{{ $p->community->name }}</td>
                                         <td>{{ $p->name }}</td>
                                         <td>{{ $p->gender }}</td>
-                                        <td>{{ $p->address }}</td>
                                         <td>{{ $p->mobile_phone }}</td>
-                                        <td>{{ $p->residential_area }}</td>
+                                        <td>{{ $p->tithe_no }}</td>
                                         <td>
                                             <a href="{{ route('people.show', $p->id) }}">
                                                 <span class="badge badge-success">
