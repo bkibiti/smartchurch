@@ -47,6 +47,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/people/approve', 'PersonController@approve')->name('people.approve');
         Route::post('admin/people/search', 'PersonController@search')->name('people.search');
         Route::resource('admin/people', 'PersonController');
+
+        Route::get('admin/get-kanda', 'OuController@getKanda')->name('getKanda');
+        Route::get('admin/get-community', 'OuController@getCommunity')->name('getCommunity');
+
+
         
         //dependats
         Route::get('admin/dependants', 'DependantsController@index')->name('dependants.index');

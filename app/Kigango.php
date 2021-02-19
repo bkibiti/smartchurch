@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Community extends Model
+class Kigango extends Model
 {
-    Protected $table = 'ou_communities';
+    Protected $table = 'ou_vigango';
     public $timestamps = false;
 }

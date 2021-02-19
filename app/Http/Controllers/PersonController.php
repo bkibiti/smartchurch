@@ -9,6 +9,8 @@ use App\PersonRelations;
 use App\PersonDependant;
 use App\MarriageStatus;
 use App\Community;
+use App\Kigango;
+
 
 use Illuminate\Http\Request;
 use Auth;
@@ -22,7 +24,9 @@ class PersonController extends Controller
     public function index()
     {
         $people = person::where('status',3)->get();
-        return view('people.index', compact("people"));
+        $vigango = Kigango::all();
+        
+        return view('people.index', compact("people","vigango"));
     }
 
  
@@ -94,6 +98,7 @@ class PersonController extends Controller
         $people = person::where('status',1)->get();
         return view('people.pending', compact("people"));
     }
+
     public function search(Request $request)
     {
         $people = person::where('status',$request->status)->get();
@@ -123,8 +128,14 @@ class PersonController extends Controller
         return redirect()->route('people.pending');
     }
 
+ 
+ 
+
     public function destroy(Person $person)
     {
-        //
+        
     }
+
+
+
 }

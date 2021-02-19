@@ -22,15 +22,51 @@
 
 @section('content')
     <div class="container-fluid">
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-md-12">
                 <div class="card card-outline card-info">
                     <div class="card-body">
-                        searc
+                        <div class="form-group row">
+                            <label class="col-sm-1 col-form-label">Kigango</label>
+                            <div class="col-sm-2">
+                                <select class="form-control select2" id="kigango" name="kigango">
+                                    <option value="">--Chagua--</option>
+                                    @foreach ($vigango as $v)
+                                        <option value={{ $v->id }} {{ old('kigango') == $v->id ? 'selected' : '' }}> {{ $v->name }}</option>
+                                    @endforeach
+                                </select>
+
+                            </div>
+                            <label class="col-sm-1 col-form-label">Kanda</label>
+                            <div class="col-sm-2">
+                                <select class="form-control select2" id="kanda" name="kanda">
+                                    <option value="">--Chagua--</option>
+                                  
+                                </select>
+
+                            </div>
+                            <label class="col-sm-1 col-form-label">Jumuiya</label>
+                            <div class="col-sm-3">
+                                <select class="form-control select2" id="community" name="community">
+                                    <option value="">--Chagua--</option>
+                                  
+                                </select>
+
+                            </div>
+                            <div class="col-sm-2">
+                                <a href="{{ route('people.create') }}">
+                                    <button type="button" class="btn btn-success ">
+                                        Tafuta
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                   
+
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -47,7 +83,8 @@
                         <table id="mydatatable" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Kanda/Kigango</th>
+                                    <th>Kigango</th>
+                                    <th>Kanda</th>
                                     <th>Jumuiya</th>
                                     <th>Jina</th>
                                     <th>{{ __('members.gender')}}</th>
@@ -59,6 +96,7 @@
                             <tbody>
                                 @foreach ($people as $p)
                                     <tr>
+                                        <td>{{ $p->kanda->kigango->name }}</td>
                                         <td>{{ $p->kanda->name }}</td>
                                         <td>{{ $p->community->name }}</td>
                                         <td>{{ $p->name }}</td>
@@ -112,6 +150,55 @@
             "autoWidth": false,
             "responsive": true,
         });
+
+        $("#kigango").change(function () {
+            var id = this.value;
+            $('#kanda').empty();
+            $('#community').empty();
+
+            $.ajax({
+                url: '{{ route('getKanda') }}',
+                data: {
+                    "id": id
+                },
+                type: 'get',
+                dataType: 'json',
+                cache: false,
+                success: function(data) {
+                    $.each(data, function(id, name) {
+                        $('#kanda').append($('<option>', {
+                            value: id,
+                            text: name
+                        }));
+                    });
+                },
+            });
+
+        });
+
+        $("#kanda").change(function () {
+            var id = this.value;
+            $('#community').empty();
+            $.ajax({
+                url: '{{ route('getCommunity') }}',
+                data: {
+                    "id": id
+                },
+                type: 'get',
+                dataType: 'json',
+                cache: false,
+                success: function(data) {
+                    $.each(data, function(id, name) {
+                        $('#community').append($('<option>', {
+                            value: id,
+                            text: name
+                        }));
+                    });
+                },
+            });
+
+        });
+
 
     </script>
 
