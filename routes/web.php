@@ -58,6 +58,18 @@ Route::middleware(['auth'])->group(function () {
         //vyama vya kitume
         Route::resource('admin/services', 'ServiceController');
   
+        //sms template
+        Route::get('admin/sms/templates', 'SmsTemplateController@getTemplate')->name('template.get');
+        Route::get('admin/sms/template-create', 'SmsTemplateController@createTemplate')->name('template.create');
+        Route::post('admin/sms/template', 'SmsTemplateController@storeTemplate')->name('template.store');
+        Route::get('admin/sms/edit/{id}', 'SmsTemplateController@editTemplate')->name('template.edit');
+        Route::put('admin/sms/template-update', 'SmsTemplateController@updateTemplate')->name('template.update');
+        Route::post('admin/sms/template-delete', 'SmsTemplateController@deleteTemplate')->name('template.delete');
+        //sms
+        Route::get('admin/sms', 'SmsController@create')->name('sms.create');
+        Route::post('admin/sms', 'SmsController@send')->name('sms.send');
+        Route::get('admin/sms/outbox', 'SmsController@outbox')->name('sms.outbox');
+
 
 
         //envets

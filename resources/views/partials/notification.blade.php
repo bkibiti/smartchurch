@@ -6,7 +6,7 @@
             class: 'bg-success', 
             title: 'Success',
             autohide: true,
-            delay: 3000,
+            delay: 5000,
             body: '{{session("alert-success")}}'
         })
     @endif
@@ -17,7 +17,7 @@
             class: 'bg-warning', 
             title: 'Warning',
             autohide: true,
-            delay: 3000,
+            delay: 5000,
             body: '{{session("alert-danger")}}'
         })
     @endif

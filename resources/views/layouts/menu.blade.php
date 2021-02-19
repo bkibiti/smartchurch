@@ -154,14 +154,44 @@
         </ul>
       </li>
 
-   
-      <li class="nav-header">ADMINISTRATION</li>
+      <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-envelope"></i>
+          <p>
+           SMS
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{route('sms.create')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p>Tuma SMS</p>
+            </a>
+          </li>
+      
+          <li class="nav-item">
+            <a href="{{route('sms.outbox')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p>Outbox</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('template.get')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p>Violezo</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+ 
     
       <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-users-cog"></i>
           <p>
-            User Management
+            Users
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
@@ -169,7 +199,7 @@
           <li class="nav-item">
             <a href="{{route('roles.index')}}" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
-              <p>User Roles</p>
+              <p>Roles</p>
             </a>
           </li>
           <li class="nav-item">
@@ -184,47 +214,43 @@
       </li>
       <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-table"></i>
+          <i class="nav-icon fas fa-cogs"></i>
           <p>
-            Master Data
+            Settings
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
          
+      
           <li class="nav-item">
             <a href="" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
-              <p>Person Roles</p>
+              <p>Hali ya Ndoa</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
-              <p>Person Classification</p>
+              <p>Uhusiano</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
-              <p>Group Positions</p>
+              <p>Nafasi za Uongozi</p>
             </a>
           </li>
       
           <li class="nav-item">
             <a href="" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
-              <p>Payment Methods</p>
+              <p>Namna ya Malipo</p>
             </a>
           </li>
         </ul>
       </li>
-      <li class="nav-item">
-        <a href="" class="nav-link">
-          <i class="nav-icon fas fa-cogs"></i>
-          <p>Settings</p>
-        </a>
-      </li>
+     
      
     
     </ul>
