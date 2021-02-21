@@ -113,7 +113,7 @@ class SmsController extends Controller
         $currentBalance = $smsBal->balance;
         $smsBal->balance =  $currentBalance - $request->totalSMS;
         $smsBal->save();
-        
+
         session()->flash("alert-success", "Ujumbe Umetumwa!");
       
         return redirect()->route('sms.dashboard');
@@ -148,6 +148,12 @@ class SmsController extends Controller
 
 
     public function createPayment()
+    {
+        $SmsBundle = SmsBundle::all();
+        return view('sms.payment',compact("SmsBundle"));
+    }
+
+    public function pay()
     {
         $SmsBundle = SmsBundle::all();
         return view('sms.payment',compact("SmsBundle"));
