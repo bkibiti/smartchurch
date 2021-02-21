@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark ">Taarifa za Msharika</h1>
+                <h1 class="m-0 text-dark ">Taarifa za Muumini</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
 
@@ -36,9 +36,8 @@
                         <label>Tarehe ya Ndoa: </label> {{ myDateFormat($person->date_marriage) }} <br>
                         <label>Jina la Mwenzi: </label> {{ $person->partner_name }} <br>
                         <label>Mahali pa Kufunga Ndoa: </label> {{ $person->marriage_place }} <br>
-                        <label>Namba ya Ahadi: </label> {{ $person->pledge_no }} <br>
-                        <label>Nafasi katika Usharika: </label> {{ $person->position->name }} <br>
-                        <label>Jina la Mzee wa Kanisa Anapoishi: </label> {{ getPersonName($person->church_elder) }} <br>
+                        <label>Namba ya Ahadi: </label> {{ $person->tithe_no }} <br>
+                       
 
                     </div>
                     <!-- /.card-body -->
@@ -47,17 +46,7 @@
             </div>
 
             <div class="col-md-8">
-                <div class="row">
-                    <div class="card col-md-12">
-
-                        <div class="card-body">
-                            <button type="button" class="btn btn-outline-info ">Jaza Ahadi</button>
-                            <button type="button" class="btn btn-outline-dark ">Maelezo ya Ziada</button>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
+            
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card card-primary card-outline card-outline-tabs">
@@ -75,9 +64,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link " id="huduma-tab" data-toggle="pill" href="#huduma" role="tab" aria-controls="huduma" aria-selected="true">Huduma za Kiroho</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="groups-tab" data-toggle="pill" href="#groups" role="tab" aria-controls="groups" aria-selected="false">Huduma Usharikani</a>
-                                    </li>
+                                 
 
 
                                 </ul>
@@ -87,16 +74,13 @@
 
                                     {{-- Makazi --}}
                                     <div class="tab-pane fade show active" id="address" role="tabpanel" aria-labelledby="address-tab">
-                                        <label>Namba ya Simu: </label> {{ $person->mobile_phone }} &emsp;
+                                        <label>Namba ya Simu: </label> {{ $person->mobile_phone }} <br>
                                         <label>Namba ya Mwenzi: </label> {{ $person->partner_phone }} <br>
                                         <label>Barua Pepe: </label> {{ $person->email }} <br>
                                         <label>Sanduku la Barua: </label> {{ $person->address }} <br>
-                                        <label>Namba ya Nyumba: </label> {{ $person->house_no }} &emsp;
-                                        <label>Block No: </label> {{ $person->block_no }} <br>
+                                        <label>Namba ya Nyumba: </label> {{ $person->house_no }} <br>
                                         <label>Eneo Analoishi: </label> {{ $person->residential_area }} <br>
-                                        <label>Usharika wa Zamani: </label> {{ $person->previous_church }} <br>
-                                        <label>Jina la Fellowship: </label> {{ $person->fellowship }} <br>
-                                        <label>Msharika Jirani: </label> {{ getPersonName($person->neighbour) }} <br>
+                                
                                     </div>
 
                                     {{-- Wategemezi --}}
@@ -141,30 +125,23 @@
 
                                     </div>
 
-                                    {{-- huduma usharikani --}}
-                                    <div class="tab-pane fade" id="groups" role="tabpanel" aria-labelledby="groups-tab">
-                                        <label>Anashiriki Ibada ya Nyumba kwa Nyumba: </label> {{ $person->active_community_prayers }} <br>
-                                        <label>Jina la Nyumba kwa Nyumba: </label> {{ $person->community_name }} <br>
-                                        <label>Sababu ya Kutoshiriki: </label> {{ $person->participation_reason }} <br>
-                                        <label>Jina la Mwenyekiti wa Nyumba kwa Nyumba: </label> {{ getPersonName($person->community_leader) }} <br>
-                                        <label>Huduma Alizojiunga/ Anazopenda Kujiunga: </label> {{ getPersonServices($person->services) }} <br>
-                                    </div>
-
+                                  
                                     <div class="tab-pane fade" id="extrainfo" role="tabpanel" aria-labelledby="extrainfo-tab">
                                         <label>Kazi/Shughuli: </label> {{ $person->occupation }} <br>
                                         <label>Mahali pa Kazi: </label> {{ $person->work_place }} <br>
                                         <label>Elimu: </label> {{ $person->education }} <br>
                                         <label>Ujuzi/Fani: </label> {{ $person->profession }} <br>
-                                        <label>Kujitolea Kutumika Kanisani: </label> {{ $person->volunteer }} <br>
+                                       
                                     </div>
 
                                     <div class="tab-pane fade" id="huduma" role="tabpanel" aria-labelledby="huduma-tab">
-                                        <label>Ubatizo: </label> {{ $person->baptised }} <br>
+                                        <label>Amebatizwa: </label> {{ $person->baptised }} <br>
                                         <label>Tarehe ya Ubatizo: </label> {{ myDateFormat($person->date_baptism) }} <br>
+                                        <label>Komunio: </label> {{ $person->communion }} <br>
+                                        <label>Tarehe ya Komunio: </label> {{ myDateFormat($person->date_communion) }} <br>
                                         <label>Kipaimara: </label> {{ $person->confirmation }} <br>
                                         <label>Tarehe ya Kipaimara: </label> {{ myDateFormat($person->date_confirmation) }} <br>
-                                        <label>Anashiriki Sakramenti ya Meza ya Bwana: </label> {{ $person->eucharist }} <br>
-                                        <label>Tarehe ya Kujaza/Kurudisha fomu: </label> {{ myDateFormat($person->form_return_date) }} <br>
+                                       
                                     </div>
 
 
