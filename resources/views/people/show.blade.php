@@ -29,14 +29,13 @@
                         </h3>
                     </div>
                     <div class="card-body">
+                        <label>Kigango/Kanda: </label> {{ $person->kanda->name }} <br>
+                        <label>Jumuiya: </label> {{ $person->community->name  }} <br>
+                        <label>Namba ya Zaka: </label> {{ $person->tithe_no }} <br>
                         <label>Tarehe ya Kuzaliwa: </label> {{ myDateFormat($person->dob) }} <br>
                         <label>Mahali Alipozaliwa: </label> {{ $person->birth_place }} <br>
                         <label>Hali ya Ndoa: </label> {{ $person->marriage_status }} <br>
-                        <label>Aina ya Ndoa: </label> {{ $person->marriage_type }} <br>
-                        <label>Tarehe ya Ndoa: </label> {{ myDateFormat($person->date_marriage) }} <br>
-                        <label>Jina la Mwenzi: </label> {{ $person->partner_name }} <br>
-                        <label>Mahali pa Kufunga Ndoa: </label> {{ $person->marriage_place }} <br>
-                        <label>Namba ya Ahadi: </label> {{ $person->tithe_no }} <br>
+                     
                        
 
                     </div>
@@ -56,15 +55,16 @@
                                         <a class="nav-link active" id="address-tab" data-toggle="pill" href="#address" role="tab" aria-controls="address" aria-selected="false">Mawasiliano na Makazi</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link " id="huduma-tab" data-toggle="pill" href="#huduma" role="tab" aria-controls="huduma" aria-selected="true">Huduma za Kiroho</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link " id="family-tab" data-toggle="pill" href="#family" role="tab" aria-controls="family" aria-selected="true">Wategemezi</a>
                                     </li>
+                                  
+                                    
                                     <li class="nav-item">
                                         <a class="nav-link " id="extrainfo-tab" data-toggle="pill" href="#extrainfo" role="tab" aria-controls="extrainfo" aria-selected="true">Elimu, Fani na Kazi</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " id="huduma-tab" data-toggle="pill" href="#huduma" role="tab" aria-controls="huduma" aria-selected="true">Huduma za Kiroho</a>
-                                    </li>
-                                 
 
 
                                 </ul>
@@ -75,6 +75,7 @@
                                     {{-- Makazi --}}
                                     <div class="tab-pane fade show active" id="address" role="tabpanel" aria-labelledby="address-tab">
                                         <label>Namba ya Simu: </label> {{ $person->mobile_phone }} <br>
+                                        <label>Jina la Mwenzi: </label> {{ $person->partner_name }} <br>
                                         <label>Namba ya Mwenzi: </label> {{ $person->partner_phone }} <br>
                                         <label>Barua Pepe: </label> {{ $person->email }} <br>
                                         <label>Sanduku la Barua: </label> {{ $person->address }} <br>
@@ -141,7 +142,9 @@
                                         <label>Tarehe ya Komunio: </label> {{ myDateFormat($person->date_communion) }} <br>
                                         <label>Kipaimara: </label> {{ $person->confirmation }} <br>
                                         <label>Tarehe ya Kipaimara: </label> {{ myDateFormat($person->date_confirmation) }} <br>
-                                       
+                                        <label>Aina ya Ndoa: </label> {{ $person->marriage_type }} <br>
+                                        <label>Tarehe ya Ndoa: </label> {{ myDateFormat($person->date_marriage) }} <br>
+                                        <label>Mahali pa Kufunga Ndoa: </label> {{ $person->marriage_place }} <br>
                                     </div>
 
 
@@ -166,7 +169,7 @@
                     <div class="card-header">
                         <h3 class="card-title">
                             <i class="fas fa-money-check-alt"></i>
-                            &nbsp; Pledges & Payments
+                            &nbsp; Ahadi na Michango
                         </h3>
                     </div>
                     <!-- /.card-header -->
