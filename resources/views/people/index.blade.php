@@ -26,42 +26,44 @@
             <div class="col-md-12">
                 <div class="card card-outline card-info">
                     <div class="card-body">
-                        <div class="form-group row">
-                            <label class="col-sm-1 col-form-label">Kigango</label>
-                            <div class="col-sm-2">
-                                <select class="form-control select2" id="kigango" name="kigango">
-                                    <option value="">--Chagua--</option>
-                                    @foreach ($vigango as $v)
-                                        <option value={{ $v->id }} {{ old('kigango') == $v->id ? 'selected' : '' }}> {{ $v->name }}</option>
-                                    @endforeach
-                                </select>
+                        <form action="{{route('people.search')}}" method="post">
+                            @csrf
+                            <div class="form-group row">
+                                <label class="col-sm-1 col-form-label">Kigango</label>
+                                <div class="col-sm-2">
+                                    <select class="form-control select2" id="kigango" name="kigango" required>
+                                        <option value="" selected>--Chagua--</option>
+                                        @foreach ($vigango as $v)
+                                            <option value={{ $v->id }} {{ old('kigango') == $v->id ? 'selected' : '' }}> {{ $v->name }}</option>
+                                        @endforeach
+                                    </select>
 
-                            </div>
-                            <label class="col-sm-1 col-form-label">Kanda</label>
-                            <div class="col-sm-2">
-                                <select class="form-control select2" id="kanda" name="kanda">
-                                    <option value="">--Chagua--</option>
-                                  
-                                </select>
+                                </div>
+                                <label class="col-sm-1 col-form-label">Kanda</label>
+                                <div class="col-sm-2">
+                                    <select class="form-control select2" id="kanda" name="kanda">
+                                        <option value="0" selected>--Chagua--</option>
+                                    
+                                    </select>
 
-                            </div>
-                            <label class="col-sm-1 col-form-label">Jumuiya</label>
-                            <div class="col-sm-3">
-                                <select class="form-control select2" id="community" name="community">
-                                    <option value="">--Chagua--</option>
-                                  
-                                </select>
+                                </div>
+                                <label class="col-sm-1 col-form-label">Jumuiya</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control select2" id="community" name="community">
+                                        <option value="0" selected>--Chagua--</option>
+                                    
+                                    </select>
 
+                                </div>
+                                <div class="col-sm-2">
+                                   
+                                        <button type="submit" class="btn btn-success ">
+                                            Tafuta
+                                        </button>
+                                    
+                                </div>
                             </div>
-                            <div class="col-sm-2">
-                                <a href="{{ route('people.create') }}">
-                                    <button type="button" class="btn btn-success ">
-                                        Tafuta
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                   
+                        </form>
 
                     </div>
                 </div>
@@ -155,7 +157,8 @@
             var id = this.value;
             $('#kanda').empty();
             $('#community').empty();
-
+            $('#community').append($('<option>', {value: '0',text: '--Chagua--'}));
+            
             $.ajax({
                 url: '{{ route('getKanda') }}',
                 data: {
@@ -165,6 +168,8 @@
                 dataType: 'json',
                 cache: false,
                 success: function(data) {
+                    $('#kanda').append($('<option>', {value: '0',text: '--Chagua--'}));
+
                     $.each(data, function(id, name) {
                         $('#kanda').append($('<option>', {
                             value: id,
@@ -179,6 +184,8 @@
         $("#kanda").change(function () {
             var id = this.value;
             $('#community').empty();
+            $('#community').append($('<option>', {value: '0',text: '--Chagua--'}));
+
             $.ajax({
                 url: '{{ route('getCommunity') }}',
                 data: {

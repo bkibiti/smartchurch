@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class service extends Model
 {
     public $timestamps = false;
+    Protected $table = 'vyama_kitume';
+
 
 
     public function members()

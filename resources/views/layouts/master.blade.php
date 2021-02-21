@@ -134,6 +134,9 @@
   
 <!-- AdminL App -->
 <script src="{{asset("dist/js/adminlte.js")}}"></script>
+<script>
+        $('.select2').select2()
+</script>
 
  {{-- custom java scripts for the page --}}
  @stack("page_scripts")

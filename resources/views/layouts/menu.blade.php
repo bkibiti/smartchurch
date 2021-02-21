@@ -164,6 +164,18 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
+            <a href="{{route('sms.dashboard')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p>Dashibodi</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('sms.createPayment')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p>Malipo</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{route('sms.create')}}" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
               <p>Tuma SMS</p>

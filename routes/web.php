@@ -43,7 +43,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/dashboard', 'HomeController@index')->name('home');
 
         //Person controller
-        Route::get('admin/people/pending', 'PersonController@pending')->name('people.pending');
         Route::post('admin/people/approve', 'PersonController@approve')->name('people.approve');
         Route::post('admin/people/search', 'PersonController@search')->name('people.search');
         Route::resource('admin/people', 'PersonController');
@@ -61,7 +60,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('admin/dependant/delete', 'DependantsController@delete')->name('dependants.delete');
 
         //vyama vya kitume
-        Route::resource('admin/services', 'ServiceController');
+        Route::resource('admin/services', 'VyamaKitumeController');
   
         //sms template
         Route::get('admin/sms/templates', 'SmsTemplateController@getTemplate')->name('template.get');
@@ -71,9 +70,15 @@ Route::middleware(['auth'])->group(function () {
         Route::put('admin/sms/template-update', 'SmsTemplateController@updateTemplate')->name('template.update');
         Route::post('admin/sms/template-delete', 'SmsTemplateController@deleteTemplate')->name('template.delete');
         //sms
+        Route::get('admin/sms/payment', 'SmsController@createPayment')->name('sms.createPayment');
+        Route::post('admin/sms/payment', 'SmsController@pay')->name('sms.pay');
         Route::get('admin/sms', 'SmsController@create')->name('sms.create');
         Route::post('admin/sms', 'SmsController@send')->name('sms.send');
+        Route::post('admin/sms/analyse', 'SmsController@analyse')->name('sms.analyse');
         Route::get('admin/sms/outbox', 'SmsController@outbox')->name('sms.outbox');
+        Route::get('admin/sms/receivers', 'SmsController@getReceiver')->name('getReceiver');
+        Route::get('admin/sms/dashboard', 'SmsController@dashboard')->name('sms.dashboard');
+
 
 
 

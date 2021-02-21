@@ -105,7 +105,7 @@
 @endsection
 
 @push("page_scripts")
-@include('group.add_member')
+@include('vyama_kitume.add_member')
 
 @include('partials.notification')
 
@@ -131,11 +131,11 @@
         scrollY:  "300px",
         scrollCollapse: true,
         columns: [
-            { title: "Name" },
-            { title: "Gender" },
-            { title: "Address" },
-            { title: "Position in Group" },
-            { title: "Action", defaultContent:  '<button type="button" id="delete_btn" class="btn btn-icon btn-rounded btn-sm btn-danger"> <i class="fas fa-trash"></i></button>'},
+            { title: "Jina" },
+            { title: "Jinsia" },
+          
+            { title: "Nafasi katika Chama" },
+            { title: "x", defaultContent:  '<button type="button" id="delete_btn" class="btn btn-icon btn-rounded btn-sm btn-danger"> <i class="fas fa-trash"></i></button>'},
             
         ]
     });
@@ -162,7 +162,6 @@
               if(value.id == member_id){
                 data.push(value.name);
                 data.push(value.gender);
-                data.push(value.address);
                 data.push($("#position_id option:selected").text()); 
                 member_ids.push(value.id);
                 positions.push(parseInt(values.position_id));
@@ -200,7 +199,7 @@
                 var data = []; 
                 data.push(value.name);
                 data.push(value.gender);
-                data.push(value.address);
+           
                 data.push(getPosition(value.pivot.position_id)); 
                 member_ids.push(value.id);
                 positions.push(value.pivot.position_id);

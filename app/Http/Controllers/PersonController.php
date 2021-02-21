@@ -93,41 +93,31 @@ class PersonController extends Controller
         return redirect()->route('people.index');
     }
 
-    public function pending()
-    {
-        $people = person::where('status',1)->get();
-        return view('people.pending', compact("people"));
-    }
-
+   
     public function search(Request $request)
     {
-        $people = person::where('status',$request->status)->get();
-        $request->flash('request',$request);    
-        return view('people.pending', compact("people"));
-    }
-
-    public function approve(Request $request)
-    {
       
-        if($request->selection == 0){
-            $status = 2;
-            $msg = 'Taarifa Imekataliwa!';
+        $kanda = $request->kanda;
+        $community = $request->community;
+
+
+        if($request->kanda == 0){
+            $kanda ='';
         }
-        if($request->selection == 1){
-            $status = 3;
-            $msg = 'Taarifa Imehakikiwa!';
+        if($request->community == 0){
+            $community = '';
         }
+        $people = person::where('kanda_id','like', '%' . $kanda . '%')
+                          ->where('community_id','like', '%' . $community . '%')
+                          ->get();
+        $vigango = Kigango::all();
+
+        $request->flash('request',$request);    
         
-        $person = person::find($request->person_id);
-        $person->status = $status;
-        $person->approval_note = $request->approval_note;
-        $person->approved_by = Auth::user()->id;
-        $person->approved_at = Carbon::now();
-        $person->save();
-        session()->flash("alert-success", $msg);
-        return redirect()->route('people.pending');
+        return view('people.index', compact("people","vigango"));
     }
 
+   
  
  
 

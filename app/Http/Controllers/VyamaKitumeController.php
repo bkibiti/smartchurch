@@ -9,19 +9,19 @@ use App\GroupMember;
 
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class VyamaKitumeController extends Controller
 {
     public function index()
     {
         $group = Service::all();
-        return view('group.index', compact("group"));
+        return view('vyama_kitume.index', compact("group"));
     }
   
     public function create()
     {
         $position = GroupPosition::all();
-        $people = Person::select('id','name','address','gender')->get();
-        return view('group.create',compact("people","position"));
+        $people = Person::select('id','name','gender')->get();
+        return view('vyama_kitume.create',compact("people","position"));
     }
 
     public function store(Request $request)
@@ -53,15 +53,15 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         $position = GroupPosition::all();
-        return view('group.show',compact("position","service"));
+        return view('vyama_kitume.show',compact("position","service"));
     }
 
  
     public function edit(Service $service)
     {
         $position = GroupPosition::all();
-        $people = person::select('id','name','address','gender')->get();
-        return view('group.edit',compact("people","position","service"));
+        $people = person::select('id','name','gender')->get();
+        return view('vyama_kitume.edit',compact("people","position","service"));
     }
 
 
