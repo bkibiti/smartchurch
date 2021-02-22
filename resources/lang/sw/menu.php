@@ -26,7 +26,7 @@ return [
     'payment' => 'Malipo',
     'enterpayment' => 'Ingiza Malipo',
     'paymentlist' => 'Orodha ya Malipo',
-    'moreinfo' => 'Maelezo zaidi',
+    'moreinfo' => 'Zaidi',
     'dependents' => 'Wategemezi na Watoto',
     'memberage' => 'Idadi ya Waumini kwa Umri',
     'memberpos' => 'Idadi ya Waumini kwa Nafasi',

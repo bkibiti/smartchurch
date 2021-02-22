@@ -41,7 +41,7 @@
                     <div class="inner">
                         <h3>{{ $dependants[0]->total + $dependants[1]->total }}</h3>
 
-                        <p>{{ __('menu.dependents') }} {{ '(Me ' . $dependants[1]->total . ', Ke ' . $dependants[0]->total . ')' }}</p>
+                        <p>Wategemezi {{ '(Me ' . $dependants[1]->total . ', Ke ' . $dependants[0]->total . ')' }}</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>

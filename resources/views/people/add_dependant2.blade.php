@@ -20,7 +20,7 @@
                             <select class="form-control select2" id="person_id" name ="person_id" required>
                                 <option value="">--Chagua--</option>
                                 @foreach($person as $p)
-                                    <option value="{{ $p->id }}">{{ $p->name .', '. $p->mobile_phone . ' kutoka ' . $p->address  }}</option>
+                                    <option value="{{ $p->id }}">{{ $p->name .', '. $p->mobile_phone }}</option>
                                 @endforeach
                             </select>
                             </div>
