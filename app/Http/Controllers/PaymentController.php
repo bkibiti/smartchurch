@@ -18,19 +18,17 @@ class PaymentController extends Controller
    
     public function index()
     {
-        $payments = DB::table('vw_pledges_and_payments')->whereNotNull('pay_id')->get();
+        $payments = Payment::All();
         return view('payments.index', compact("payments"));
-
     }
 
  
     public function create()
     {
         $fundActivity = FundActivity::where('status','1')->get();
-        $pledges = DB::table('vw_pledges_and_payments')->whereNotNull('pledge_id')->get();
-        $person = Person::select('id','name','address')->where('status','1')->get();
+        $person = Person::select('id','name','address')->get();
         $paymentMethod = PaymentMethod::all();
-        return view('payments.create', compact("pledges","fundActivity","person","paymentMethod"));
+        return view('payments.create', compact("fundActivity","person","paymentMethod"));
     }
 
  
@@ -38,16 +36,7 @@ class PaymentController extends Controller
     {
         $payment = new Payment;
 
-        if ($request->pledged == "1") { // Payment for non pledge
-            $payment->person_id = $request->person_id;
-        }
-
-        if ($request->pledged == "2") { // Payment for pledges
-            $pledge = Pledge::find($request->pledge_id);
-            $payment->pledge_id = $request->pledge_id;
-            $payment->person_id = $pledge->person_id;
-        }
-
+        $payment->person_id = $request->person_id;
         $payment->activity_id = $request->activity_id;
         $payment->pay_date = toDbDateFormat($request->pay_date);
         $payment->amount = $request->amount;

@@ -53,13 +53,7 @@
                                         <option value="">--Chagua--</option>
 
                                         @foreach ($person as $p)
-                                            @php
-                                            $address = '';
-                                            if ($p->address <> '') {
-                                                $address =', kutoka '. $p->address;
-                                                }
-                                                @endphp
-                                                <option value="{{ $p->id }}" }}>{{ $p->name . ' ' . $address }}</option>
+                                                <option value="{{ $p->id }}" }}>{{ $p->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

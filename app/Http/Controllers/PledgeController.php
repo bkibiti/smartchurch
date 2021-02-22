@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Pledge;
 use App\Person;
-use App\Family;
-use App\Group;
 use App\FundActivity;
 use Auth;
 use DB;
@@ -16,7 +14,7 @@ class PledgeController extends Controller
   
     public function index()
     {
-        $pledges = DB::table('vw_pledges_and_payments')->whereNotNull('pledge_id')->get();
+        $pledges = Pledge::All();
         return view('pledges.index', compact("pledges"));
     }
 
@@ -24,7 +22,7 @@ class PledgeController extends Controller
     public function create()
     {
         $FundActivity = FundActivity::where('status','1')->get();
-        $person = Person::select('id','name','address')->where('status','1')->get();
+        $person = Person::select('id','name')->get();
 
         return view('pledges.create', compact("FundActivity","person"));
     }
@@ -56,7 +54,7 @@ class PledgeController extends Controller
     public function edit(Pledge $pledge)
     {
         $FundActivity = FundActivity::where('status','1')->get();
-        $person = Person::select('id','name','address')->where('status','1')->get();
+        $person = Person::select('id','name')->get();
       
         return view('pledges.edit', compact("FundActivity","person","pledge"));
     }

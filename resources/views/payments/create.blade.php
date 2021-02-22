@@ -32,20 +32,11 @@
                         @csrf
                         <div class="card-body">
 
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Aina ya Malipo<font color="red">*</font></label>
-                                <div class="col-sm-4">
-                                    <select class="form-control select2" id="pledged" name="pledged">
-                                        <option value="1">Malipo Mapya</option>
-                                        <option value="2">Malipo ya Ahadi</option>
-                                    </select>
-                                </div>
-                            </div>
-
+                     
                             <!-- Paymet without previous pledge -->
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Aina ya Ahadi<font color="red">*</font></label>
+                                    <label class="col-sm-2 col-form-label">Aina ya Malipo<font color="red">*</font></label>
                                     <div class="col-sm-10">
                                         <select class="form-control select2" id="activity_id" name="activity_id" required>
                                             <option value="">--Chagua--</option>
@@ -55,40 +46,21 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div id='pledger_group_div'>
-
+                           
                                 <div class="form-group row" id="person">
                                     <label class="col-sm-2 col-form-label">Muumini<font color="red">*</font></label>
                                     <div class="col-sm-10">
                                         <select class="form-control select2" id="person_id" name="person_id">
                                             <option value="">--Chagua--</option>
                                             @foreach ($person as $p)
-                                                @php
-                                                $address = '';
-                                                if ($p->address <> '') {
-                                                    $address =', kutoka '. $p->address;
-                                                    }
-                                                    @endphp
-                                                    <option value="{{ $p->id }}" }}>{{ $p->name . ' ' . $address }}</option>
+                                                    <option value="{{ $p->id }}" }}>{{ $p->name }}</option>
                                             @endforeach
 
                                         </select>
                                     </div>
                                 </div>
 
-                            </div>
 
-
-
-
-                            <div class="form-group row" id="pledger_name">
-                                <label class="col-sm-2 col-form-label">Ahadi kutoka<font color="red">*</font></label>
-                                <div class="col-sm-10">
-                                    <select class="form-control select2" id="pledge_id" name="pledge_id">
-
-                                    </select>
-                                </div>
-                            </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tarehe ya Malipo <font color="red">*</font></label>
@@ -159,9 +131,7 @@
     @include('partials.notification')
 
     <script>
-        $('#person').show();
-        $('#pledger_name').hide();
-
+       
         $(document).ready(function() {
             $('.select2').select2()
 
@@ -174,46 +144,9 @@
             });
         });
 
-        $('#pledged').on('select2:selecting', function(e) {
-            var id = e.params.args.data.id;
-            if (id == '1') {
-                $('#pledger_group_div').show();
-                $('#pledger_div').show();
-                $('#pledger_name').hide();
-            }
-
-            if (id == '2') {
-                $('#pledger_group_div').hide();
-                $('#pledger_div').hide();
-                $('#pledger_name').show();
-                $('#person_id').prop('required', false);
-                $('#pledger').prop('required', false);
-            }
-
-        });
 
 
 
-        //on change of activity load pledges for this activity
-
-        $('#activity_id').on('select2:selecting', function(e) {
-            if ($('#pledged').val() == "2") {
-                var id = e.params.args.data.id;
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url: "{{ route('payments.pledges') }}",
-                    method: "POST",
-                    data: {
-                        _token: _token,
-                        activity_id: id
-                    },
-                    success: function(result) {
-                        $('#pledge_id').html(result);
-                    }
-                })
-            }
-
-        });
 
     </script>
 

@@ -12,8 +12,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Malipo / Orodha ya Malipo</li>
+         
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -29,7 +28,7 @@
         <div class="card-header">
           <a href="{{route('payments.create')}}">
               <button type="button" class="btn btn-info float-right">
-                  Lipa
+                  Ingiza Malipo
               </button>
           </a>
         </div>
@@ -43,21 +42,21 @@
                     <th>Tarehe ya Malipo</th>
                     <th>Kiasi</th>
                     <th>Jinsi ya Kulipia</th>
-                    <th>Maelezo</th>
+                    {{-- <th>Maelezo</th> --}}
                     <th></th>
                 </tr>
             </thead>
             <tbody>
               @foreach ($payments as $p)
                 <tr>
-                  <td>{{$p->name}}</td>
-                  <td>{{$p->activity}}</td>
+                  <td>{{$p->person->name}}</td>
+                  <td>{{$p->activity->name}}</td>
                   <td>{{myDateFormat($p->pay_date)}}</td>
-                  <td>{{number_format($p->pay_amount, 2, '.', ',')}}</td>
-                  <td>{{$p->pay_method}}</td>
-                  <td>{{$p->pay_comment}}</td>
+                  <td>{{number_format($p->amount, 2, '.', ',')}}</td>
+                  <td>{{$p->payMethod->name}}</td>
+                  {{-- <td>{{$p->comment}}</td> --}}
                   <td>
-                    <a href="{{ route('pledges.edit', $p->pay_id) }}">
+                    <a href="{{ route('payments.edit', $p->id) }}">
                         <span class="badge badge-primary">
                           <i class="fas fa-edit "></i>
                         </span>
@@ -107,7 +106,7 @@
       "responsive": true,
       'columnDefs': [
         {
-            "targets": 4,
+            "targets": 3,
             "className": "text-right",
         }
         ],

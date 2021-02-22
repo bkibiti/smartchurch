@@ -12,8 +12,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Ahadi / Orododha ya Ahadi</li>
+         
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -42,22 +41,18 @@
                     <th>Aina ya Ahadi</th>
                     <th>Tarehe ya Ahadi</th>
                     <th>Kiasi Alichoahidi</th>
-                    <th>Kiasi Alicholipa</th>
-                    <th>Maelezo</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
             @foreach ($pledges as $p)
                 <tr>
-                  <td>{{$p->name}}</td>
-                  <td>{{$p->activity}}</td>
+                  <td>{{$p->person->name}}</td>
+                  <td>{{$p->activity->name}}</td>
                   <td>{{myDateFormat($p->pledge_date)}}</td>
-                  <td>{{number_format($p->pledge_amount, 2, '.', ',')}}</td>
-                  <td>{{number_format($p->pay_amount, 2, '.', ',')}}</td>
-                  <td>{{$p->pledge_comment}}</td>
+                  <td>{{number_format($p->amount, 2, '.', ',')}}</td>
                   <td>
-                    <a href="{{ route('pledges.edit', $p->pledge_id) }}">
+                    <a href="{{ route('pledges.edit', $p->id) }}">
                         <span class="badge badge-primary">
                           <i class="fas fa-edit "></i>
                         </span>
@@ -105,13 +100,10 @@
       "responsive": true,
       'columnDefs': [
         {
-            "targets": 4,
+            "targets": 3,
             "className": "text-right",
         },
-        {
-            "targets": 5,
-            "className": "text-right",
-        }
+    
         ],
     });
 
