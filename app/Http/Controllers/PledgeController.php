@@ -22,7 +22,7 @@ class PledgeController extends Controller
     public function create()
     {
         $FundActivity = FundActivity::where('status','1')->get();
-        $person = Person::select('id','name')->get();
+        $person = Person::select('id','name')->orderBy('name')->get();
 
         return view('pledges.create', compact("FundActivity","person"));
     }
@@ -54,7 +54,7 @@ class PledgeController extends Controller
     public function edit(Pledge $pledge)
     {
         $FundActivity = FundActivity::where('status','1')->get();
-        $person = Person::select('id','name')->get();
+        $person = Person::select('id','name')->orderBy('name')->get();
       
         return view('pledges.edit', compact("FundActivity","person","pledge"));
     }

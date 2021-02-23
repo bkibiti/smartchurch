@@ -117,17 +117,18 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-          <a href="{{route('fund-activities.index')}}" class="nav-link">
-              <i class="fas fa-angle-double-right"></i>
-              <p>{{ __('menu.pledgetype')}}</p>
-            </a>
-          </li>
+            <a href="{{route('pledges.create')}}" class="nav-link">
+                <i class="fas fa-angle-double-right"></i>
+                <p>Weka Ahadi </p>
+              </a>
+            </li>
           <li class="nav-item">
           <a href="{{route('pledges.index')}}" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
               <p>{{ __('menu.pledgelist')}}</p>
             </a>
           </li>
+       
         </ul>
       </li>
       <li class="nav-item has-treeview">
@@ -228,12 +229,17 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-cogs"></i>
           <p>
-            Settings
+            Mpangilio
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
-         
+          <li class="nav-item">
+            <a href="{{route('fund-activities.index')}}" class="nav-link">
+                <i class="fas fa-angle-double-right"></i>
+                <p>Aina ya Michango</p>
+              </a>
+            </li>
       
           <li class="nav-item">
             <a href="" class="nav-link">

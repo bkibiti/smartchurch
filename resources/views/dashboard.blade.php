@@ -20,74 +20,69 @@
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>{{ $personCount[0]->count + $personCount[1]->count }}</h3>
-
-                        <p>Waumini {{ '(Me ' . $personCount[1]->count . ', Ke ' . $personCount[0]->count . ')' }}</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="{{ route('people.index') }}" class="small-box-footer">{{ __('menu.moreinfo') }} <i class="fas fa-arrow-circle-right"></i></a>
+   
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                  <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+    
+                  <div class="info-box-content">
+                    <span class="info-box-text">Idadi ya Waumini</span>
+                    <span class="info-box-number">{{ $personCount[0]->count + $personCount[1]->count .' (Me ' . $personCount[1]->count . ', Ke ' . $personCount[0]->count . ')' }}</span>
+                  </div>
+                  <!-- /.info-box-content -->
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>{{ $dependants[0]->total + $dependants[1]->total }}</h3>
 
-                        <p>Wategemezi {{ '(Me ' . $dependants[1]->total . ', Ke ' . $dependants[0]->total . ')' }}</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="" class="small-box-footer">{{ __('menu.moreinfo') }} <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- ./col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                  <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+    
+                  <div class="info-box-content">
+                    <span class="info-box-text">Idadi ya Kanda</span>
+                    <span class="info-box-number">{{ $data[1]}}</span>
+                  </div>
+                  <!-- /.info-box-content -->
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>{{ $groupCount }}</h3>
 
-                        <p>{{ __('menu.groups') }}</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="{{ route('services.index') }}" class="small-box-footer">{{ __('menu.moreinfo') }} <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- ./col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                  <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+    
+                  <div class="info-box-content">
+                    <span class="info-box-text">Idadi ya Jumuiya</span>
+                    <span class="info-box-number">{{ $data[2] }}</span>
+                  </div>
+                  <!-- /.info-box-content -->
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-danger">
-                    <div class="inner">
-                        <h3>{{ $event }}</h3>
 
-                        <p>{{ __('menu.events') }} </p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                    <a href="{{ route('events.index') }}" class="small-box-footer">{{ __('menu.moreinfo') }} <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- ./col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                  <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+    
+                  <div class="info-box-content">
+                    <span class="info-box-text">Idadi ya Vyama</span>
+                    <span class="info-box-number">{{ $data[0] }}</span>
+                  </div>
+                  <!-- /.info-box-content -->
                 </div>
             </div>
-            <!-- ./col -->
+                
+
+        
+        
         </div>
         <!-- /.row -->
 
         <div class="row">
             <div class="col-md-6">
-                <div class="card card-warning">
+                <div class="card card-secondary">
                     <div class="card-header">
-                        <h3 class="card-title"><i class="fas fa-chart-bar"></i> {{ __('menu.memberpos') }}</h3>
+                        <h3 class="card-title"><i class="fas fa-chart-bar"></i> Idadi ya Waumini kwa Kanda</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                             </button>
@@ -95,7 +90,9 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-            
+                        <div class="chart">
+                            <canvas id="memberByKanda" style="min-height: 250px; height: 250px;  max-width: 100%;"></canvas>
+                        </div>
 
                     </div>
                     <!-- /.card-body -->
@@ -103,7 +100,7 @@
                 <!-- /.card -->
             </div>
             <div class="col-md-6">
-                <div class="card card-success">
+                <div class="card card-secondary">
                     <div class="card-header">
                         <h3 class="card-title"> <i class="fas fa-chart-bar"></i> {{ __('menu.memberage') }}</h3>
 
@@ -114,7 +111,7 @@
                     </div>
                     <div class="card-body">
                         <div class="chart">
-                            <canvas id="stackedBarChart" style="min-height: 200px; height: 200px; max-height: 200px; max-width: 100%;"></canvas>
+                            <canvas id="stackedBarChart" style="min-height: 250px; height: 250px;  max-width: 100%;"></canvas>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -139,6 +136,7 @@
     <!-- ChartJS -->
     <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
 
+    <!-- Members by Age group chart -->
     <script>
         $(function() {
 
@@ -201,6 +199,66 @@
 
     </script>
  
+   <!-- Members by Kanda and Gender -->
+   <script>
+    $(function() {
+
+     
+        var males = [];
+        var females = [];
+        var labels = []
+        $.each(@json($members), function(key, value) {
+       
+            labels.push(value.kanda);
+            females.push(value.Female);
+            males.push(value.Male);
+        });
+        console.log(labels,males,females);
+
+
+
+        var chartData = {
+            labels: labels,
+            datasets: [{
+                    label: 'Wanaume',
+                    backgroundColor: 'rgba(60,141,188,0.9)',
+                    borderColor: 'rgba(60,141,188,0.8)',
+                    data: males
+                },
+                {
+                    label: 'Wanawake',
+                    backgroundColor: 'rgba(66, 138, 107, 1)',
+                    borderColor: 'rgba(66, 138, 107, 1)',
+                    data: females
+                },
+            ]
+        }
+
+
+        var chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            }
+        }
+
+        var stackedBarChartCanvas = $('#memberByKanda').get(0).getContext('2d')
+
+        var stackedBarChart = new Chart(stackedBarChartCanvas, {
+            type: 'bar',
+            data: chartData,
+            options: chartOptions
+        })
+
+    })
+
+</script>
 
 
 @endpush

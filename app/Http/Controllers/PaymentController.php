@@ -26,7 +26,7 @@ class PaymentController extends Controller
     public function create()
     {
         $fundActivity = FundActivity::where('status','1')->get();
-        $person = Person::select('id','name','address')->get();
+        $person = Person::select('id','name')->orderBy('name')->get();
         $paymentMethod = PaymentMethod::all();
         return view('payments.create', compact("fundActivity","person","paymentMethod"));
     }

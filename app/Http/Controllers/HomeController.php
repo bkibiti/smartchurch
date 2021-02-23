@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Person;
-use App\Family;
+use App\Kanda;
+use App\Community;
 use App\Service;
-use App\Event;
 use Carbon\Carbon;
 USE DB;
 
@@ -22,17 +22,21 @@ class HomeController extends Controller
     public function index()
     {
         $personCount = Person::groupBy('gender')->selectRaw('gender,count(*) as count')->orderBy('gender')->get();
-        
-        $groupCount = Service::count();
-        $upcoming = Event::whereDate('start', '>', Carbon::now())->count();
-        $ongoing = Event::whereDate('start', '<', Carbon::now())->whereDate('end', '>', Carbon::now())->count();
-        $event = $upcoming + $ongoing;
+        // $groupCount = Service::count();
+        // $kanda = Kanda::count();
+        // $community = Community::count();
+        $data[0]= Service::count(); //vyama vya kitume
+        $data[1]= Kanda::count();
+        $data[2]= Community::count(); //Jumuiya
 
+ 
+     
+        $members = DB::select("SELECT k.name kanda,
+                    SUM(IF(gender ='Me',1,0)) as 'Male',
+                    SUM(IF(gender ='Ke',1,0)) as 'Female'
+                    FROM persons
+                    JOIN ou_kanda k ON k.id = persons.kanda_id GROUP BY kanda order by Kanda");
        
-        $dependants = DB::select("SELECT gender,count(gender) total FROM person_dependants
-        GROUP BY gender ORDER BY gender");
-
-
         $ageCategory = DB::select("SELECT gender,
             SUM(IF(TIMESTAMPDIFF(YEAR, dob, CURDATE()) < 10,1,0)) as '0 - 9',
             SUM(IF(TIMESTAMPDIFF(YEAR, dob, CURDATE()) BETWEEN 10 and 19,1,0)) as '10 - 19',
@@ -46,6 +50,6 @@ class HomeController extends Controller
             FROM persons group by gender order by gender");
 
        
-        return view('dashboard',compact("personCount","groupCount","event","ageCategory","dependants"));
+        return view('dashboard',compact("personCount","data","ageCategory","members"));
     }
 }
