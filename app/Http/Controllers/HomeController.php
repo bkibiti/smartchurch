@@ -49,7 +49,20 @@ class HomeController extends Controller
             SUM(IF(TIMESTAMPDIFF(YEAR, dob, CURDATE()) >=80, 1, 0)) as '80 - 99'
             FROM persons group by gender order by gender");
 
-       
-        return view('dashboard',compact("personCount","data","ageCategory","members"));
+        $pledges = DB::select("SELECT f.name activity,sum(amount) amount
+                    FROM pledges
+                    JOIN fund_activities f ON f.id = pledges.activity_id
+                    where year(pledge_date) = year(now())
+                    group by activity,year(pledge_date)");
+        $payment = DB::select("SELECT f.name activity,sum(amount) amount
+                    FROM payments
+                    JOIN fund_activities f ON f.id = payments.activity_id
+                    where year(pay_date) = year(now())
+                    group by activity");
+       $paytrend = DB::select("SELECT year(pay_date) year,month(pay_date) month,DATE_FORMAT(pay_date, '%b-%y') monthname, sum(amount) amount 
+                    FROM payments 
+                    group by year,month,monthname
+                    order by year desc,month desc limit 12");
+        return view('dashboard',compact("personCount","data","ageCategory","members","pledges","payment","paytrend"));
     }
 }
