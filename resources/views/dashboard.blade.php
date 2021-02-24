@@ -65,7 +65,7 @@
                     <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Idadi ya Vyama</span>
+                        <span class="info-box-text">Idadi Vyama vya Kitume</span>
                         <span class="info-box-number">{{ $data[0] }}</span>
                     </div>
                     <!-- /.info-box-content -->

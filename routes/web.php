@@ -61,7 +61,16 @@ Route::middleware(['auth'])->group(function () {
 
         //vyama vya kitume
         Route::resource('admin/services', 'VyamaKitumeController');
+
+        //vikundi
+        Route::resource('admin/vigango', 'VigangoController');
+        Route::resource('admin/kanda', 'KandaController');
+        Route::resource('admin/community', 'CommunityController');
+
+
   
+
+
         //sms template
         Route::get('admin/sms/templates', 'SmsTemplateController@getTemplate')->name('template.get');
         Route::get('admin/sms/template-create', 'SmsTemplateController@createTemplate')->name('template.create');

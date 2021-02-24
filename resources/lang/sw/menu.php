@@ -11,7 +11,7 @@ return [
     'members' => 'Waumini',
     'addmember' => 'Muumini Mpya',
     'memberslist' => 'Orodha ya Waumini',
-    'groups' => 'Vyama vya Kitume',
+    'groups' => 'Vikundi',
     'addgroup' => 'Ongeza Chama',
     'grouplist' => 'Orodha ya Vyama',
     'events' => 'Matukio',

@@ -69,15 +69,28 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{route('services.create')}}" class="nav-link">
+            <a href="{{route('vigango.index')}}" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
-              <p> {{ __('menu.newgroup')}}</p>
+              <p>Vigango</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('kanda.index')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p> Kanda</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('community.index')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p> Jumuiya</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('services.index')}}" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
-              <p>{{ __('menu.grouplist')}}</p>
+              <p>Vyama vya Kitume</p>
             </a>
           </li>
         
