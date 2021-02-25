@@ -7,12 +7,12 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{route('kanda.destroy','delete')}}" method="post">
+            <form action="{{route('community.destroy','delete')}}" method="post">
                 @csrf
                 @method("DELETE")
 
                 <div class="modal-body">
-                    <span>Je unataka kufuta kanda?</span> 
+                    <span>Je unataka kufuta Jumuiya?</span> 
                     <font color="red"><span id="message"></span></font>
                     <input type="hidden" name="id" id="id" value="">
                 </div>

@@ -20,70 +20,53 @@ class CommunityController extends Controller
         $kanda = Kanda::all();
         return view('community.index', compact("community","kanda"));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|min:4|max:50',
+            'kanda_id' => 'required',
+        ]);
+        
+        $k = new Community;
+        $k->name = $request->name;
+        $k->kanda_id = $request->kanda_id;
+        $k->save();
+
+        session()->flash("alert-success", "Taarifa imehifadhiwa!");
+        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function update(Request $request, $id)
     {
-        //
+     
+         $request->validate([
+            'name' => 'required|string|min:4|max:50',
+            'kanda_id' => 'required',
+        ]);
+
+        $kig = Community::find($request->id);
+        $kig->name = $request->name;
+        $kig->kanda_id = $request->kanda_id;
+        $kig->save();
+
+        session()->flash("alert-success", "Taarifa imehifadhiwa!");
+        return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(Request $request)
     {
-        //
+        // dd($request->all());
+
+        try {
+            Community::destroy($request->id);
+            session()->flash("alert-success", "Taarifa imefutwa!");
+            return back();
+        } catch (Exception $exception) {
+            session()->flash("alert-danger", "Kuna tatizo limetokea!");
+            return back();
+        }
+
     }
 }
