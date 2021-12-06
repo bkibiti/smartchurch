@@ -15,6 +15,7 @@ class FamilyController extends Controller
     {
         $family = Family::all();
         return view('family.index', compact("family"));
+        
     }
 
     public function create()

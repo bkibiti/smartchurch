@@ -13,7 +13,6 @@ use App\Payment;
 use Auth;
 use DB;
 
-
 class MemberController extends Controller
 {
     public function index()

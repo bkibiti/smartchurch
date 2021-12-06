@@ -15,7 +15,6 @@ class FundActivityController extends Controller
     }
 
 
-  
     public function store(Request $request)
     {
         $FundActivity = new FundActivity;
