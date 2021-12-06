@@ -9,7 +9,7 @@ use App\PersonRelations;
 use App\PersonDependant;
 use App\MarriageStatus;
 use App\Community;
-use App\Kigango;
+use App\Kanda;
 
 
 use Illuminate\Http\Request;
@@ -24,9 +24,9 @@ class PersonController extends Controller
     public function index()
     {
         $people = person::where('status',3)->get();
-        $vigango = Kigango::all();
+        $kanda = Kanda::all();
         
-        return view('people.index', compact("people","vigango"));
+        return view('people.index', compact("people","kanda"));
     }
 
  
@@ -110,11 +110,11 @@ class PersonController extends Controller
         $people = person::where('kanda_id','like', '%' . $kanda . '%')
                           ->where('community_id','like', '%' . $community . '%')
                           ->get();
-        $vigango = Kigango::all();
+        $kanda = Kanda::all();
 
         $request->flash('request',$request);    
         
-        return view('people.index', compact("people","vigango"));
+        return view('people.index', compact("people","kanda"));
     }
 
    

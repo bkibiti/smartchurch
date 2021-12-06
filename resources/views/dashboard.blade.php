@@ -21,20 +21,9 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
 
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box mb-3">
-                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Idadi ya Waumini</span>
-                        <span class="info-box-number">{{ $personCount[0]->count + $personCount[1]->count . ' (Me ' . $personCount[1]->count . ', Ke ' . $personCount[0]->count . ')' }}</span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-            </div>
-
+        
             <!-- ./col -->
-            <div class="col-12 col-sm-6 col-md-3">
+            <div class="col-12 col-sm-6 col-md-4">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
@@ -47,7 +36,7 @@
             </div>
 
             <!-- ./col -->
-            <div class="col-12 col-sm-6 col-md-3">
+            <div class="col-12 col-sm-6 col-md-4">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
@@ -59,19 +48,17 @@
                 </div>
             </div>
 
-            <!-- ./col -->
-            <div class="col-12 col-sm-6 col-md-3">
+            <div class="col-12 col-sm-6 col-md-4">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Idadi Vyama vya Kitume</span>
-                        <span class="info-box-number">{{ $data[0] }}</span>
+                        <span class="info-box-text">Idadi ya Waumini</span>
+                        <span class="info-box-number">{{ $personCount[0]->count + $personCount[1]->count . ' (Me ' . $personCount[1]->count . ', Ke ' . $personCount[0]->count . ')' }}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
             </div>
-
 
 
 

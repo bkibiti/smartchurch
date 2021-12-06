@@ -25,7 +25,7 @@ class HomeController extends Controller
         // $groupCount = Service::count();
         // $kanda = Kanda::count();
         // $community = Community::count();
-        $data[0]= Service::count(); //vyama vya kitume
+        // $data[0]= Service::count(); //vyama vya kitume
         $data[1]= Kanda::count();
         $data[2]= Community::count(); //Jumuiya
 

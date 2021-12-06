@@ -38,7 +38,7 @@
           <table id="mydatatable" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Kigango</th>
+                    <th>Parokia</th>
                     <th>Kanda</th>
                     <th>Jumuiya</th>
                     <th></th>

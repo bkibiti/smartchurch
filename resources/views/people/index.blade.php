@@ -29,7 +29,7 @@
                         <form action="{{route('people.search')}}" method="post">
                             @csrf
                             <div class="form-group row">
-                                <label class="col-sm-1 col-form-label">Kigango</label>
+                                {{-- <label class="col-sm-1 col-form-label">Kigango</label>
                                 <div class="col-sm-2">
                                     <select class="form-control select2" id="kigango" name="kigango" required>
                                         <option value="" selected>--Chagua--</option>
@@ -38,17 +38,19 @@
                                         @endforeach
                                     </select>
 
-                                </div>
+                                </div> --}}
                                 <label class="col-sm-1 col-form-label">Kanda</label>
-                                <div class="col-sm-2">
+                                <div class="col-sm-4">
                                     <select class="form-control select2" id="kanda" name="kanda">
-                                        <option value="0" selected>--Chagua--</option>
-                                    
+                                        <option value="" selected>--Chagua--</option>
+                                        @foreach ($kanda as $k)
+                                            <option value={{ $k->id }} {{ old('kanda') == $k->id ? 'selected' : '' }}> {{ $k->name }}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
                                 <label class="col-sm-1 col-form-label">Jumuiya</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <select class="form-control select2" id="community" name="community">
                                         <option value="0" selected>--Chagua--</option>
                                     
@@ -85,7 +87,7 @@
                         <table id="mydatatable" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Kigango</th>
+                                    {{-- <th>Kigango</th> --}}
                                     <th>Kanda</th>
                                     <th>Jumuiya</th>
                                     <th>Jina</th>
@@ -98,7 +100,7 @@
                             <tbody>
                                 @foreach ($people as $p)
                                     <tr>
-                                        <td>{{ $p->kanda->kigango->name }}</td>
+                                        {{-- <td>{{ $p->kanda->kigango->name }}</td> --}}
                                         <td>{{ $p->kanda->name }}</td>
                                         <td>{{ $p->community->name }}</td>
                                         <td>{{ $p->name }}</td>

@@ -12,7 +12,7 @@
                 <div class="card-body">
            
                   <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">Kigango <font color="red">*</font></label>
+                    <label class="col-sm-4 col-form-label">Parokia <font color="red">*</font></label>
                     <div class="col-sm-8">
                       <select class="form-control select2" id="kigango_id" name ="kigango_id" required>
                         @foreach ($vigango as $p)
