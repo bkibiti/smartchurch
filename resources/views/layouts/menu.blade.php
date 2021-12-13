@@ -61,41 +61,44 @@
       </li>
       <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-users"></i>
+          <i class="nav-icon fas fa-user-shield"></i>
           <p>
-            {{ __('menu.groups')}}
+            {{ __('menu.leadership')}}
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{{route('vigango.index')}}" class="nav-link">
-              <i class="fas fa-angle-double-right"></i>
-              <p>Vigango</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{route('kanda.index')}}" class="nav-link">
-              <i class="fas fa-angle-double-right"></i>
-              <p> Kanda</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('community.index')}}" class="nav-link">
-              <i class="fas fa-angle-double-right"></i>
-              <p> Jumuiya</p>
-            </a>
-          </li>
+    
           <li class="nav-item">
             <a href="{{route('services.index')}}" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
-              <p>Vyama vya Kitume</p>
+              <p>Orodha</p>
             </a>
           </li>
         
         </ul>
       </li>
+      {{-- Vyama vya kitume --}}
+      <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-users"></i>
+          <p>
+            Vyama vya Kitume
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+    
+          <li class="nav-item">
+            <a href="{{route('services.index')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p>Orodha</p>
+            </a>
+          </li>
+        
+        </ul>
+      </li>
+
       {{-- <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-calendar-alt"></i>
@@ -120,6 +123,7 @@
         
       </ul>
       </li> --}}
+
       <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-university"></i>
@@ -144,9 +148,10 @@
        
         </ul>
       </li>
+      {{-- Malipo --}}
       <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-credit-card"></i>
+          <i class="nav-icon fas fa-wallet"></i>
           <p>
             {{ __('menu.payment')}}
             <i class="right fas fa-angle-left"></i>
@@ -163,6 +168,30 @@
             <a href="{{route('payments.index')}}" class="nav-link">
               <i class="fas fa-angle-double-right"></i>
               <p>{{ __('menu.paymentlist')}}</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      {{-- Matoleo --}}
+      <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-coins"></i>
+          <p>
+            Matoleo
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{route('offerings.create')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p>Ingiza Matoleo</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('offerings.index')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p>Orodha ya Matoleo</p>
             </a>
           </li>
         </ul>
@@ -242,11 +271,31 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-cogs"></i>
           <p>
-            Master Data
+            Masta Data
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{route('vigango.index')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p>Vigango</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('kanda.index')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p> Kanda</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('community.index')}}" class="nav-link">
+              <i class="fas fa-angle-double-right"></i>
+              <p> Jumuiya</p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="{{route('fund-activities.index')}}" class="nav-link">
                 <i class="fas fa-angle-double-right"></i>

@@ -68,7 +68,6 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('admin/community', 'CommunityController');
 
 
-  
 
 
         //sms template
@@ -78,6 +77,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/sms/edit/{id}', 'SmsTemplateController@editTemplate')->name('template.edit');
         Route::put('admin/sms/template-update', 'SmsTemplateController@updateTemplate')->name('template.update');
         Route::post('admin/sms/template-delete', 'SmsTemplateController@deleteTemplate')->name('template.delete');
+
         //sms
         Route::get('admin/sms/payment', 'SmsController@createPayment')->name('sms.createPayment');
         Route::post('admin/sms/payment', 'SmsController@pay')->name('sms.pay');
@@ -89,13 +89,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/sms/dashboard', 'SmsController@dashboard')->name('sms.dashboard');
 
 
-
-
         //envets
         Route::resource('admin/event-types', 'EventTypeController');
         Route::resource('admin/events', 'EventController');
  
-
         Route::get('admin/events-calender', 'EventController@calender')->name('calender');
 
         //pledges
@@ -108,6 +105,9 @@ Route::middleware(['auth'])->group(function () {
         //payments
         Route::resource('admin/payments', 'PaymentController');
         Route::post('admin/payments/pledges', 'PaymentController@getPledges')->name('payments.pledges');
+
+         //offerings
+         Route::resource('admin/offerings', 'OfferingController');
 
         //user roles
         Route::get('admin/user-roles', 'RoleController@index')->name('roles.index');

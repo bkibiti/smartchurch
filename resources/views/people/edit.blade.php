@@ -56,7 +56,7 @@
                                 <label class="col-sm-2 col-form-label">Tarehe ya Kuzaliwa</label>
                                 <div class="col-sm-4">
                                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" value="{{ $person->dob }}" id="dob" , name="dob" data-target="#datetimepicker1" />
+                                        <input type="text" class="form-control datetimepicker-input" value="{{ $person->dob }}" id="dob"  name="dob" data-target="#datetimepicker1" />
                                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>

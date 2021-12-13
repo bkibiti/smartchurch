@@ -16,7 +16,7 @@
                       
 
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Msharika <font color="red">*</font></label>
+                                <label class="col-sm-4 col-form-label">Muumini <font color="red">*</font></label>
                                 <div class="col-sm-8">
                                   <select class="form-control select2" id="member_id" name ="member_id" required>
                                       <option value="">--Chagua--</option>
@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Nafasi katika Kundi <font color="red">*</font></label>
+                                <label class="col-sm-4 col-form-label">Cheo <font color="red">*</font></label>
                                 <div class="col-sm-8">
                                 <select class="form-control select2" id="position_id" name ="position_id" required>
                                     <option value="">--Chagua--</option>
